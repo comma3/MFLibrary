@@ -42,13 +42,8 @@ def writeListToCSV(outputfilename, list):
         itemwriter = csv.writer(outfile, delimiter=",")
         for item in list:
             itemwriter.writerow(item)
-    return True
 
-# TODO: Check this is correct
 def writeDictToCSV(outputfilename, dictionary):
     with open(outputfilename, 'w', newline='') as outfile:
-        itemwriter = csv.writer(outfile, delimiter=",")
-        for key,value in dictionary:
-            itemwriter.writerow(key,value)
-
-    return True
+		for key, value in dictionary.items():
+			outfile.write('%s,%s\n' % (key, value))
