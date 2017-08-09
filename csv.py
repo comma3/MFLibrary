@@ -1,7 +1,7 @@
 import csv
 
 
-def read_csv_to_list(filename):
+def read_to_list(filename):
     """
     Opens the indicated filename and creates a list line by line
     """
@@ -13,7 +13,7 @@ def read_csv_to_list(filename):
     return listoutput
 
 
-def read_csv_to_dictionary(filename):
+def read_cto_dictionary(filename):
     """
     Opens the indicated filename and creates a list line by line using the first entry on each line
     as the key and the second as the value
@@ -26,7 +26,7 @@ def read_csv_to_dictionary(filename):
     return dictionaryoutput
 
 
-def read_csv_to_2tuple_dictionary(filename):
+def read_to_2tuple_dictionary(filename):
     """
     Opens the indicated filename and creates a list line by line using the first two entries on each line
     written as a tuple as the key and the third item as the value
@@ -41,14 +41,14 @@ def read_csv_to_2tuple_dictionary(filename):
     return dictionaryoutput
 
 
-def write_list_to_csv(outputfilename, list):
+def write_list(outputfilename, list):
     with open(outputfilename, 'w', newline='') as outfile:
         itemwriter = csv.writer(outfile, delimiter=",")
         for item in list:
             itemwriter.writerow(item)
 
 
-def write_dict_to_csv(outputfilename, dictionary):
+def write_dict(outputfilename, dictionary):
     with open(outputfilename, 'w', newline='') as outfile:
         for key, value in dictionary.items():
             outfile.write('%s,%s\n' % (key, value))
