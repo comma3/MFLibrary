@@ -1,7 +1,7 @@
 import csv
 
 
-def read_to_list(filename):
+def read_list(filename):
     """
     Opens the indicated filename and creates a list line by line
     """
@@ -13,7 +13,7 @@ def read_to_list(filename):
     return listoutput
 
 
-def read_to_dictionary(filename):
+def read_dictionary(filename):
     """
     Opens the indicated filename and creates a list line by line using the first entry on each line
     as the key and the second as the value
@@ -26,7 +26,7 @@ def read_to_dictionary(filename):
     return dictionaryoutput
 
 
-def read_to_2tuple_dictionary(filename):
+def read_2tuple_dictionary(filename):
     """
     Opens the indicated filename and creates a list line by line using the first two entries on each line
     written as a tuple as the key and the third item as the value
