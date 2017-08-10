@@ -13,7 +13,7 @@ def read_to_list(filename):
     return listoutput
 
 
-def read_cto_dictionary(filename):
+def read_to_dictionary(filename):
     """
     Opens the indicated filename and creates a list line by line using the first entry on each line
     as the key and the second as the value
@@ -42,6 +42,12 @@ def read_to_2tuple_dictionary(filename):
 
 
 def write_list(outputfilename, list):
+    """
+    Writes a list to a csv.
+    :param outputfilename:
+    :param list:
+    :return:
+    """
     with open(outputfilename, 'w', newline='') as outfile:
         itemwriter = csv.writer(outfile, delimiter=",")
         for item in list:
@@ -49,6 +55,14 @@ def write_list(outputfilename, list):
 
 
 def write_dict(outputfilename, dictionary):
+    """
+    Writes a dictionary to a csv.
+    :param outputfilename:
+    :param dictionary:
+    :return:
+    """
+    # May want to modify this code to pickle the key and value and alter the read dictionary to do the same.
+
     with open(outputfilename, 'w', newline='') as outfile:
         for key, value in dictionary.items():
             outfile.write('%s,%s\n' % (key, value))
