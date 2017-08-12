@@ -11,7 +11,7 @@ def delete_many(string, rms):
     return string
 
 
-def replace_pairs(string, args, repls):
+def replace_pairwise(string, args, repls):
     """
     Takes a string, a substring to replace, and a paired replacement.
     Equivalent to multiple string.replace() calls.
