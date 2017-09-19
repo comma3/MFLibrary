@@ -25,6 +25,18 @@ def read_dictionary(filename):
             dictionaryoutput[item[0]] = item[1]
     return dictionaryoutput
 
+def read_reverse_dictionary(filename):
+    """
+    Opens the indicated filename and creates a list line by line using the first entry on each line
+    as the key and the second as the value
+    """
+    dictionaryoutput = {}
+    with open(filename) as file:
+        entries = csv.reader(file)
+        for item in entries:
+            dictionaryoutput[item[1]] = item[0]
+    return dictionaryoutput
+
 
 def read_2tuple_dictionary(filename):
     """
@@ -44,25 +56,31 @@ def read_2tuple_dictionary(filename):
 def write_list(outputfilename, list):
     """
     Writes a list to a csv.
-    :param outputfilename:
-    :param list:
-    :return:
     """
-    with open(outputfilename, 'w', newline='') as outfile:
-        itemwriter = csv.writer(outfile, delimiter=",")
-        for item in list:
-            itemwriter.writerow(item)
+    try:
+        with open(outputfilename, 'w', newline='', encoding='utf-8') as outfile:
+            itemwriter = csv.writer(outfile, delimiter=",")
+            for item in list:
+                itemwriter.writerow(item)
+    except:
+        input("File still open! Please close and press enter to continue")
+        with open(outputfilename, 'w', newline='', encoding='utf-8') as outfile:
+            itemwriter = csv.writer(outfile, delimiter=",")
+            for item in list:
+                itemwriter.writerow(item)
 
 
 def write_dict(outputfilename, dictionary):
     """
     Writes a dictionary to a csv.
-    :param outputfilename:
-    :param dictionary:
-    :return:
     """
     # May want to modify this code to pickle the key and value and alter the read dictionary to do the same.
-
-    with open(outputfilename, 'w', newline='') as outfile:
-        for key, value in dictionary.items():
-            outfile.write('%s,%s\n' % (key, value))
+    try:
+        with open(outputfilename, 'w', newline='', encoding='utf-8') as outfile:
+            for key, value in dictionary.items():
+                outfile.write('%s,%s\n' % (key, value))
+    except:
+        input("File still open! Please close and press enter to continue")
+        with open(outputfilename, 'w', newline='', encoding='utf-8') as outfile:
+            for key, value in dictionary.items():
+                outfile.write('%s,%s\n' % (key, value))
